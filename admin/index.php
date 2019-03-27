@@ -9,7 +9,11 @@
     // Nếu đăng nhập
     if ($user)
     {
-        echo "<a href='signout.php'>Logout</a>";
+        // Hiển thị sidebar
+        require_once 'templates/sidebar.php';
+        
+        // Hiển thị sidebar
+        require_once 'templates/content.php';
     }
     // Nếu không đăng nhập
     else

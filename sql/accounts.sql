@@ -2,10 +2,10 @@
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th3 27, 2019 lúc 12:00 PM
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 27, 2019 lúc 04:39 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
--- Phiên bản PHP: 7.3.3
+-- Phiên bản PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,7 @@ CREATE TABLE `accounts` (
   `date_created` datetime NOT NULL,
   `facebook` text CHARACTER SET utf8 NOT NULL,
   `google` text CHARACTER SET utf8 NOT NULL,
-  `twitter` text CHARACTER SET utf8 NOT NULL,
+  `gender` varchar(3) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL DEFAULT 'nam',
   `phone` int(11) NOT NULL,
   `description` longtext CHARACTER SET utf8 NOT NULL,
   `url_avatar` text CHARACTER SET utf8 NOT NULL
@@ -49,8 +49,9 @@ CREATE TABLE `accounts` (
 -- Đang đổ dữ liệu cho bảng `accounts`
 --
 
-INSERT INTO `accounts` (`id_acc`, `username`, `password`, `display_name`, `email`, `position`, `status`, `date_created`, `facebook`, `google`, `twitter`, `phone`, `description`, `url_avatar`) VALUES
-(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Linh', 'nhokkuteo1996@gmail.com', 1, 0, '2019-03-27 17:00:00', '', '', '', 396301805, '', '');
+INSERT INTO `accounts` (`id_acc`, `username`, `password`, `display_name`, `email`, `position`, `status`, `date_created`, `facebook`, `google`, `gender`, `phone`, `description`, `url_avatar`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 'Nguyễn Linh', 'nhokkuteo1996@gmail.com', 1, 0, '2019-03-27 17:00:00', '', '', 'nam', 396301805, '', ''),
+(2, 'admin1', 'e10adc3949ba59abbe56e057f20f883e', 'Linh', 'linh@gmail.com', 1, 0, '2019-03-27 20:00:00', '', '', 'nữ', 394029804, '', '');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -70,7 +71,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT cho bảng `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id_acc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_acc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
